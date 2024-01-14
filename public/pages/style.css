@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #282a36; /* Dracula theme background color */
+  color: #f8f8f2; /* Dracula theme text color */
+}
+
+#sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  background-color: #1e1f2a; /* Dracula theme background color */
+  color: #f8f8f2; /* Dracula theme text color */
+  transition: transform 0.3s ease;
+}
+
+.sideContent {
+  /* make the background color darker then the sidebar */
+  padding: 7px;
+  background-color: #282a36;
+  /* rounded corners */
+  border-radius: 0 15px 15px 0;
+}
+
+.sideContent:hover {
+  background-color: #21222c; /* New background color when hovering */
+}
+
+
+
+.sideContent a {
+  color: #ff79c6; /* Default link color */
+}
+
+.sideContent:hover a {
+  color: #8a2be2; /* New link color when hovering */
+}
+
+#sidebar.collapsed {
+  transform: translateX(-200px);
+}
+
+#content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+#content.collapsed {
+  /* animation: content-collapse 0.3s ease; */
+    margin-left: 30px;
+}
+
+#toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 175px;
+  cursor: pointer;
+  color: #f8f8f2; /* Dracula theme text color */
+  transition: transform 0.3s ease;
+}
+
+#toggle-btn.collapsed {
+  transform: translateX(-170px);
+}
+
+#toggle-btn:hover {
+  color: #6272a4; /* Dracula theme hover color */
+}
