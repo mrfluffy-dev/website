@@ -8,7 +8,7 @@ async fn main() -> std::io::Result<()> {
             .service(actix_files::Files::new("/", "public").index_file("pages/index.html"))
                 //post request /get
     })
-    .bind(("127.0.0.1", 4200))?
+    .bind(("0.0.0.0", 4200))?
     .run()
     .await
 }
