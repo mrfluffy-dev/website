@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mrfluffy-dev</title>
+  <script src="/pages/loadSrc.js"></script>
+</head>
+<body onload="loadSidebar()">
+  <div id="sidebar">
+    <!-- Sidebar content will be loaded dynamically here -->
+  </div>
+
+  <div id="toggle-btn" onclick="toggleSidebar()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M3 13h18v-2H3v2zm0 5h18v-2H3v2zm0-10v2h18V8H3z"/>
+    </svg>
+  </div>
+
+  <div id="content">
+    <h1>Blog 1 Server setup</h1>
+    <p>
+      <h2>The basics</h2>
+      When it comes to servers there is really only two ways to do it. You either the cheap way or the expensive way.
+      lets go over the expensive way first.
+      <ol type="1">
+        <li> You rent a server from a hosting company. </li>
+        <li> You get some tools that look cool (Or crap I am looking at you Oracle)</li>
+        <li> You get a domain name (even more money gone) </li>
+        <li> You end up learning tools that you get vendor locked into </li>
+        <li> All around a bad time  </li>
+      </ol>
+      Yeah that is it I definitely did not gloss over anything there at all and it is all factual (Sources: Trust me bro)
+      <br>
+      <br>
+      Then you get the Chad cheap way.
+      <ol type="1">
+        <li> Runs on potato </li>
+        <li> You can do whatever you want with it (T&C who?) </li>
+        <li> Use and learn some cool open source tools </li>
+        <li> feel like mr robot doing cool hacker man stuff </li>
+      </ol>
+      Ok now for my favorite way to do it. The cheap way. So grad that garbage computer that is only used to store the old homework folder and lets get started.
+      <h2>The OS</h2>
+      See when it comes to a server you might have the idea of going with The Stallman stamp of disapproval Arch Linux or hell even Gentoo. But I am going to stop you right there.<br>
+      you are one weirdo dude and might need to get that checked out. But for real you are going to want to go with a Debian based distro. I personally use Ubuntu server but you can use whatever you want. <br>
+      <h3>Why Ubuntu server? </h3>
+      Its simple. I thought it was a good choice at the time 😎.<br>
+      It also has some cool tools like firewall and ez installer. has nothing you cant get anywhere else but it works.
+      <h3>Why Not Ubuntu Server </h3>
+      It is an awful choice. It is bloated and has a lot of stuff you don't need. Like wtf is a snap? 🙃 And why did it fuck up my <code>lsblk</code><br>
+      <br>
+      But alas we are here and I make my choices and must live with them.<br>
+      Could have been worse. I could have gone with fedora ☺
+    </p>
+    <p>
+      <h2> What even is a docker?</h2>
+Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.[4] The service has both free and premium tiers. The software that hosts the containers is called Docker Engine.[5] It was first released in 2013 and is developed by Docker, Inc.[6]<br>
+      (100% my words no plagiarism here.)<br>
+      <br>
+      Let us come back to the 0 IQ explanation of what docker is. Back in yee olden days when tech was still cool.<br>
+      They would wip out the old IBM Calculator box aka a "server" and they would spin up a VM.<br>
+      Now here is why that is stupid each of those VM's would get its own IP and as we all know there is only 4,294,967,296 of those.<br>
+      And don't even get me started on the fact that only 3,706,452,992 of them are actually usable.<br>
+      even more they needed 1 CPU per VM imagine that.💀 <br>
+      <br>
+      Well in comes mr Docker shit can run all the servers on 1 core if that is what you want. Even the IP problem is solved coz of black magic.<br>
+      <br>
+      The basic idea of docker is you have your main kernel running your host system.<br>
+      On top of that you have docker. Now what docker does is it takes your host kernel and just acts like its his.<br>
+      Then it does some magic network stuff and no more need for wasteful ip usage.<br>
+      Repeat that for however many services you want to run and jobs the gooden.
+    </p>
+    <p>
+      <h2>IP's</h2>
+      I am not your network teacher I am not here to explain IP's and all there stuff that makes them IP's.<br>
+      Here is a link to a <a href="https://en.wikipedia.org/wiki/IP_address"> Wikipedia</a> article.<br>
+      But here is a <b>TLDR</b>.<br>
+      There are 2 types of IP's (I am talking only ipv4 go read up on ipv6 on your own time)<br>
+      Internal and external IP's the Internal ones point to shit on your local network like that printer that doesn't work.<br>
+      External IP's are what you use every day to go to your favorite porn site meaning they point to devices on the big old <b>WWW</b>.
+      And that is all the information you are getting from me on that topic.
+    </p>
+    <p>
+      <h2>How to use Docker.</h2>
+      Ok I am going to teach you the lazy way to do it <a href="https://yacht.sh/docs/Installation/Install/">Yacht</a>.<br>
+      <h3>Docker compose</h3>
+          Now docker compose is basically the Lego bricks to make a working docker service.<br>
+      <pre>
+version: "3"
+services:
+ yacht:
+  container_name: yacht
+  restart: unless-stopped
+  ports:
+   - 8000:8000
+  volumes:
+   - yacht:/config
+   - /var/run/docker.sock:/var/run/docker.sock
+  image: selfhostedpro/yacht
+
+volumes:
+ yacht:
+        </pre>
+    </p>
+  </div>
+</body>
+</html>

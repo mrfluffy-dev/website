@@ -6,6 +6,36 @@ body {
   color: #f8f8f2; /* Dracula theme text color */
 }
 
+
+/*give h1 Dracula green*/
+h1 {
+  color: #50fa7b;
+}
+/*give h2 Dracula orange*/
+h2 {
+  color: #ffb86c;
+}
+
+/*give h3 Dracula yello*/
+h3 {
+  color: #f1fa8c;
+}
+
+/*give code Dracula red*/
+code {
+  color: #ff5555;
+}
+/*give a Dracula pink*/
+a {
+  color: #ff79c6;
+}
+/*give pre Dracula red*/
+pre {
+  color: #ff5555;
+  background-color: #1e1f2a;
+}
+
+
 #sidebar {
   position: fixed;
   width: 200px;

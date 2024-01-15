@@ -4,7 +4,7 @@ use actix_web::{App,HttpServer};
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
-            .service(actix_files::Files::new("/example", "public").index_file("pages/example.html"))
+            .service(actix_files::Files::new("/day1", "public").index_file("pages/day1.html"))
             .service(actix_files::Files::new("/", "public").index_file("pages/index.html"))
                 //post request /get
     })
